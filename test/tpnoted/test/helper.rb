@@ -5,7 +5,7 @@ ENV['RACK_ENV'] = 'test'
 require 'minitest/autorun'
 require 'rack/test'
 
-require_relative '../web'
+require_relative '../../../lib/tpnoted/web'
 
 
 module Tpnoted
