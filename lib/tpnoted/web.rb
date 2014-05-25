@@ -8,6 +8,8 @@ $stdout.sync = true if ENV['LOG_SYNC'].to_i == 1
 module Tpnoted
   class Web < Sinatra::Base
     
+    API_VERSION = 1
+    
     set :logging, true
     
     helpers Sinatra::JSON
@@ -19,6 +21,12 @@ module Tpnoted
     
     get '/' do
       "Harro! :)"
+      json({
+        :service => 'tpnoted',
+        :version => API_VERSION,
+        :time    => Time.now.to_i,
+        :msg     => "Hello. Welcome to the tpnoted service."
+      })
     end
     
   end
