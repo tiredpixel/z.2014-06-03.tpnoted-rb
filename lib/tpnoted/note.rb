@@ -10,13 +10,15 @@ module Tpnoted
     
     include Storeable
     
-    def initialize(opts = {})
+    def initialize(password, opts = {})
       @logger = opts[:logger] || Logger.new(nil)
+      
+      self.password = password
       
       opts[:uuid] ? uuid(opts[:uuid]) : uuid
       
-      self.title = opts[:title] if opts[:title]
-      self.body  = opts[:body]  if opts[:body]
+      self.title    = opts[:title] if opts[:title]
+      self.body     = opts[:body]  if opts[:body]
     end
     
     def title

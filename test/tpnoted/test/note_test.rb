@@ -15,7 +15,7 @@ module Tpnoted
       end
       
       def test_create
-        @notes << note = Tpnoted::Note.new
+        @notes << note = Tpnoted::Note.new('password')
         
         refute_nil note.uuid
       end
@@ -25,16 +25,22 @@ module Tpnoted
         body  = "Heard melodies are sweet, but those unheard" + $/ +
                 "Are sweeter; therefore, ye soft pipes, play on;" + $/
         
-        @notes << note = Tpnoted::Note.new
+        @notes << note = Tpnoted::Note.new('password')
         
         note.title = title
         note.body  = body
         
-        @notes << note2 = Tpnoted::Note.new(:uuid => note.uuid)
+        note2 = Tpnoted::Note.new('password', :uuid => note.uuid)
         
         assert_equal note.uuid, note2.uuid
         assert_equal title, note2.title
         assert_equal body, note2.body
+        
+        note3 = Tpnoted::Note.new('password2', :uuid => note.uuid) # invalid
+        
+        assert_equal note.uuid, note3.uuid
+        assert_nil note3.title
+        assert_nil note3.body
       end
       
       def test_save_load_fast
@@ -42,12 +48,12 @@ module Tpnoted
         body  = "The voice I hear this passing night was heard" + $/ +
                 "In ancient days by emperor and clown:" + $/
         
-        @notes << note = Tpnoted::Note.new(
+        @notes << note = Tpnoted::Note.new('password',
           :title => title,
           :body  => body
         )
         
-        @notes << note2 = Tpnoted::Note.new(:uuid => note.uuid)
+        note2 = Tpnoted::Note.new('password', :uuid => note.uuid)
         
         assert_equal note.uuid, note2.uuid
         assert_equal title, note2.title
@@ -55,7 +61,7 @@ module Tpnoted
       end
       
       def test_delete
-        @notes << note = Tpnoted::Note.new
+        @notes << note = Tpnoted::Note.new('password')
         
         assert File.exists?(note.storage_file)
         
