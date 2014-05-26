@@ -4,6 +4,7 @@ gem 'foreman', '~> 0.67'
 
 gem 'sinatra', '~> 1.4.5'
 gem 'sinatra-contrib', '~> 1.4.2'
+gem 'rack-parser', '~> 0.6.0'
 
 gem 'thin', '~> 1.6.2'
 

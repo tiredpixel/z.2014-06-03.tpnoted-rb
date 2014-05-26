@@ -10,6 +10,8 @@ GEM
       thor (~> 0.17.0)
     multi_json (1.10.1)
     rack (1.5.2)
+    rack-parser (0.6.0)
+      rack
     rack-protection (1.5.3)
       rack
     rack-test (0.6.2)
@@ -37,6 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   foreman (~> 0.67)
+  rack-parser (~> 0.6.0)
   rack-test (~> 0.6)
   sinatra (~> 1.4.5)
   sinatra-contrib (~> 1.4.2)
