@@ -20,7 +20,6 @@ module Tpnoted
     end
     
     get '/' do
-      "Harro! :)"
       json({
         :service => 'tpnoted',
         :version => API_VERSION,
