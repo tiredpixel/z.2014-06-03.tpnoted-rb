@@ -1,5 +1,3 @@
-require 'logger'
-
 require_relative 'storeable'
 
 
@@ -11,8 +9,6 @@ module Tpnoted
     include Storeable
     
     def initialize(password, opts = {})
-      @logger = opts[:logger] || Logger.new(nil)
-      
       self.password = password
       
       opts[:uuid] ? uuid(opts[:uuid]) : uuid
