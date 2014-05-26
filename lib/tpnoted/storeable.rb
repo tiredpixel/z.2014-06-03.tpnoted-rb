@@ -31,6 +31,10 @@ module Tpnoted
       @storage ||= {}
     end
     
+    def empty?
+      storage.empty?
+    end
+    
     def uuid(uuid = nil)
       unless @uuid
         if uuid
@@ -81,6 +85,8 @@ module Tpnoted
     end
     
     def load
+      return unless File.exists?(storage_file) # not found
+      
       ciphertext = File.read(storage_file)
       
       data_dec = encrypt_decrypt(:decrypt, ciphertext)
