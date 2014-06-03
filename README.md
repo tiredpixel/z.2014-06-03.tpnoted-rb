@@ -1,7 +1,12 @@
-# tpnoted
+# tpnoted (Ruby)
 
-tpnoted is a simple service for the storage and retrieval of encrypted notes. It
-is written in [Ruby](https://www.ruby-lang.org/en/).
+tpnoted is a simple service for the storage and retrieval of encrypted notes.
+Notes are encrypted and decrypted transparently using OpenSSL, with filesystem
+storage containing only the ciphertext.
+
+This repository has *notebook* status, meaning that it is released in the hope
+it will be useful, but it is not under active development and there are no
+releases planned.
 
 
 ## Externals
@@ -48,7 +53,6 @@ To run all tests:
 ### GET /
 
 Read service status.
-This is extra to the brief.
 
 #### Parameters
 
@@ -123,3 +127,15 @@ Read note.
     Server: thin 1.6.2 codename Doc Brown
     
     {"id":"08dd12cb-aec7-46bc-9713-6b6dd623a056","title":"TO AUTUMN.","body":"Sometimes whoever seeks abroad may find\nThee sitting careless on a granary floor, \n"}
+
+
+## Blessing
+
+May you find peace, and help others to do likewise.
+
+
+## Licence
+
+© [tiredpixel](http://www.tiredpixel.com) 2014.
+It is free software, released under the MIT License, and may be redistributed
+under the terms specified in `LICENSE`.
